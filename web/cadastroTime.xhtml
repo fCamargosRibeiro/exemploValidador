@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> Cadastro de Time </title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+            <h:messages />
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:column>
+                    <h:outputLabel value="Nome" />
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{timeBean.time.nome}"  required="true" 
+                                 requiredMessage="Nome é campo obrigatório"
+                                 validator="#{timeBean.validaDuplicidade}" />
+                </h:column>
+                
+                <h:column>
+                    <h:outputLabel value="Ano de fundação" />
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{timeBean.time.anoFundacao}" validator="#{timeBean.validaAno}" ></h:inputText>
+                </h:column>
+                
+                <h:column>
+                    <h:outputLabel value="Número de integrantes"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{timeBean.time.numeroIntegrantes}">
+                        <f:validator validatorId="numeroIntegrantesValidator"/>
+                    </h:inputText>
+                </h:column>
+                
+                <h:column>
+                    <h:commandButton value="Salvar" action="#{timeBean.salvar}" />
+                </h:column>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

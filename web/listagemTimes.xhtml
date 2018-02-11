@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> Times </title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandLink action="CADASTRO_TIME">
+                <h:graphicImage library="images" name="btnNovo.png" width="17" height="17"/>
+            </h:commandLink>
+        </h:form>
+        <h:dataTable value="#{timeBean.times}" var="time" 
+                     rowClasses="ativo, inativo"
+                     headerClass="header"
+                     styleClass="listTimes">
+            <h:column>
+                <f:facet name="header">
+                    Nome
+                </f:facet>
+                <h:outputText value="#{time.nome}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    Ano de Fundação
+                </f:facet>
+                <h:outputText value="#{time.anoFundacao}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    Número de Integrantes
+                </f:facet>
+                <h:outputText value="#{time.numeroIntegrantes}" />
+            </h:column>
+
+            <f:facet name="footer">
+                <h:outputText value="Quantidade de linhas: #{timeBean.quantidadeLinhas}" />
+            </f:facet>
+        </h:dataTable>
+    </h:body>
+</html>
+
